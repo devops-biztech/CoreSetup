@@ -61,7 +61,7 @@ Requires winget. Also you might need to run "Set-ExecutionPolicy Unrestricted" t
 $progressTitle = "Created by MrDataWolf. Version: $versionNumber"
 
 # Define the list of possible clients
-$clients = @("test")
+$clients = @("AE","BGCC","BP","BM","BNB","BT","CO","CHAMP","EL","ECG","FL","GLC","GLF","GPI","HS","JC","JCURL","LCC","M1","MP","MTS","MY","ND","NFL","OMEY","POE","POU","PPP","Safe","SLI","SRM","STL","STROM","TRL","VANCE","VL","WC","Other")
 
 #show progress
 function outputProgress {
