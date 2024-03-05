@@ -36,8 +36,13 @@ coreSetup --noauto --nobase
 Requires winget. Also you might need to run "Set-ExecutionPolicy Unrestricted" to use powershell scripts.
 
 #>
-Start-Process -FilePath "powershell" -ArgumentList "-File .\coreSetup.ps1" -Verb RunAs
-
+# Check if we are running as administrator
+if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    # orginal: Start-Process -FilePath "powershell" -ArgumentList "-File .\coreSetup.ps1" -Verb RunAs
+    # We are not running as administrator, so start a new process with 'RunAs'
+    Start-Process powershell.exe "-File",($myinvocation.MyCommand.Definition) -Verb RunAs
+    exit
+}
 #Patrick Moon - 2024
 # Written by Patrick Moon
 # Tested and co-developed by Gabriel
@@ -90,11 +95,29 @@ function Invoke-Sanity-Checks {
         exit
     }
 }
+function Install-App {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$app,
+        [string]$source,
+        [string]$scope
+    )
+
+    if ($source -and $scope) { 
+        winget install $app -s $source --scope $scope --silent 
+    } elseif ($source) { 
+        winget install $app -s $source --silent 
+    } else { 
+        winget install $app --silent 
+    }
+}
+
 function Install-Apps {
     param (
         [Parameter(Mandatory=$true)]
         [string[]]$apps,
-        [string[]]$source
+        [string]$source,
+        [string]$scope
     )
 
     $totalApps = $apps.Count
@@ -105,7 +128,7 @@ function Install-Apps {
         if ($LASTEXITCODE -eq 0) {
             Write-Host " $app already installed"  -ForegroundColor Cyan
         } else {
-            if ($source) { winget install $app -s $source --silent } else { winget install $app --silent }
+            Install-App -app $app -source $source -scope $scope
             if ($LASTEXITCODE -eq 0) {
                 Write-Host "$app installed" -ForegroundColor Green
             } else {
