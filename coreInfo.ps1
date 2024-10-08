@@ -20,7 +20,7 @@ function outputProgress {
     Write-Progress -Activity "Catchphrase!" -Status $Status -PercentComplete $Progress
 }
 
-$baseFolder = "ChangeMe"
+$baseFolder = "Biztech"
 function autogatherInfo {
     outputProgress "Getting Date..." 05
     # Get the current date and format it as yyyy-MM-dd
