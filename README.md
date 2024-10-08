@@ -1,18 +1,18 @@
 # CoreSetup
-[Download coreSetup EXE version here](https://github.com/mrdatawolf/CoreSetup/raw/main/coreSetupGUI.exe)
+[Download coreSetup EXE version here](https://github.com/devops-biztech/CoreSetup/raw/main/coreSetupGUI.exe)
 
 **Right-click here and select "Save link as..." to download the script.**
 
-[Download coreSetup PS1 version here](https://github.com/mrdatawolf/CoreSetup/raw/main/coreSetup.ps1)
+[Download coreSetup PS1 version here](https://github.com/devops-biztech/CoreSetup/raw/main/coreSetup.ps1)
 
-[Download coreUpdate PS1 here](https://github.com/mrdatawolf/CoreSetup/raw/main/coreUpdate.ps1)
+[Download coreUpdate PS1 here](https://github.com/devops-biztech/CoreSetup/raw/main/coreUpdate.ps1)
 
 
 Uses winget to uninstall apps we don't want on systems.
 Also uses winget to installs various apps we want.
 Also updates applications if we want.
 Also allows us to set default power options.
-Get the latest version at https://github.com/mrdatawolf/CoreSetup
+Get the latest version at https://github.com/devops-biztech/CoreSetup
 
 **Because it's a powershell script you need to allow it to run on your system.  If you don't know what this means then DO NOT USE this script.**
 **Fully run the Windows and Dell updates before this!!!!!** 
