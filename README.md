@@ -1,5 +1,11 @@
 # CoreSetup
-[Download EXE version here](https://github.com/mrdatawolf/CoreSetup/raw/main/coreSetupGUI.exe)
+[Download coreSetup EXE version here](https://github.com/mrdatawolf/CoreSetup/raw/main/coreSetupGUI.exe)
+
+**Right-click here and select "Save link as..." to download the script.**
+
+[Download coreSetup PS1 version here](https://github.com/mrdatawolf/CoreSetup/raw/main/coreSetup.ps1)
+
+[Download coreUpdate PS1 here](https://github.com/mrdatawolf/CoreSetup/raw/main/coreUpdate.ps1)
 
 
 Uses winget to uninstall apps we don't want on systems.
@@ -18,7 +24,7 @@ Get the latest version at https://github.com/mrdatawolf/CoreSetup
 set-executionpolicy remotesigned 
 then Y when it asks how to change it.
 ### If it is just sitting on the winget update task 
-press y and enter.  It is acutally asking if you agree to the souce agreement terms. if you want to actually see the original prompt open a powershell window and do winget list instead.
+press y and enter.  It is actually asking if you agree to the souce agreement terms. if you want to actually see the original prompt open a powershell window and do winget list instead.
 ### If it closes right away or you see a ExecutionPolicy error
 1. Win10
 * Set-ExecutionPolicy Unrestricted
